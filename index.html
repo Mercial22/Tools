@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔罗牌占卜</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #e94560;
+            margin-bottom: 30px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .card {
+            width: 220px;
+            height: 380px;
+            border: 2px solid #e94560;
+            border-radius: 15px;
+            padding: 15px;
+            background-color: #16213e;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.2);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 180px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #e94560;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff6b6b;
+            transform: scale(1.05);
+        }
+        .interpretation {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #16213e;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .card-interpretation {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #e94560;
+            background-color: #1a1a2e;
+            border-radius: 0 10px 10px 0;
+        }
+        .card-interpretation h3 {
+            color: #e94560;
+            margin-top: 0;
+        }
+        .card-interpretation p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        .controls {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #16213e;
+            border-radius: 15px;
+        }
+        .spread-type {
+            margin-bottom: 20px;
+        }
+        .spread-type button {
+            background-color: #16213e;
+            border: 2px solid #e94560;
+        }
+        .spread-type button.active {
+            background-color: #e94560;
+        }
+        #spreadDescription {
+            color: #ccc;
+            margin: 10px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>塔罗牌占卜</h1>
+    <div class="intro">
+        <p>在抽取塔罗牌之前，请静心冥想您想要解答的问题。</p>
+        <p>根据您的需求选择不同的牌阵。</p>
+    </div>
+    <div class="controls">
+        <div class="spread-type">
+            <button onclick="setSpreadType('three')" class="active">三张牌阵</button>
+            <button onclick="setSpreadType('five')">五张牌阵</button>
+            <button onclick="setSpreadType('seven')">七张牌阵</button>
+        </div>
+        <p id="spreadDescription">选择的牌阵：三张牌阵（3张牌）</p>
+        <button onclick="drawCards()">抽取塔罗牌</button>
+    </div>
+    <div class="card-container" id="cardContainer"></div>
+    <div class="interpretation" id="interpretation"></div>
+    <script src="tarot.js"></script>
+</body>
+</html>
